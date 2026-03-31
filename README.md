@@ -1,43 +1,33 @@
-# 🏥 Clinical Text Classifier — DistilBERT on MedNLI
+# Clinical Text Classifier — DistilBERT on MedNLI
 
 Fine-tuning **DistilBERT** for Medical Natural Language Inference — classifying whether a clinical hypothesis is *entailed*, *neutral*, or *contradicted* by a clinical premise.
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR_USERNAME/clinical-text-classifier/blob/main/clinical_text_classifier.ipynb)
-[![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://python.org)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-orange.svg)](https://pytorch.org)
-[![HuggingFace](https://img.shields.io/badge/🤗-Transformers-yellow.svg)](https://huggingface.co)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-
 ---
 
-## 🚀 Run in Your Browser — No Installation Required
+## Run in Your Browser — No Installation Required
 
 > **Everything runs free in Google Colab. No Python, no Jupyter, no setup.**
 
-**→ [Open Notebook in Google Colab](https://colab.research.google.com/github/YOUR_USERNAME/clinical-text-classifier/blob/main/clinical_text_classifier.ipynb)**
-
 Once open:
 1. **Runtime → Change runtime type → T4 GPU** (free, ~4× faster)
-2. **Runtime → Run all**
-3. Done — the full pipeline runs in ~2 minutes
 
 ---
 
-## 🎯 Task
+## Task
 
 **Medical NLI** determines the logical relationship between two clinical sentences:
 
 | Label | Description | Example |
 |---|---|---|
-| ✅ **Entailment** | Hypothesis follows from premise | *"BP: 165/100"* → *"Patient has hypertension"* |
-| ➖ **Neutral** | No logical connection | *"BP: 165/100"* → *"Patient was discharged today"* |
-| ❌ **Contradiction** | Hypothesis contradicts premise | *"BP: 165/100"* → *"BP is completely normal"* |
+| **Entailment** | Hypothesis follows from premise | *"BP: 165/100"* → *"Patient has hypertension"* |
+| **Neutral** | No logical connection | *"BP: 165/100"* → *"Patient was discharged today"* |
+| **Contradiction** | Hypothesis contradicts premise | *"BP: 165/100"* → *"BP is completely normal"* |
 
 Real-world use: EHR consistency checking, clinical decision support, automated note review.
 
 ---
 
-## 🧠 Model
+## Model
 
 - **Base**: [`distilbert-base-uncased`](https://huggingface.co/distilbert-base-uncased) — 66M params, 40% smaller & 60% faster than BERT
 - **Architecture**: DistilBERT encoder + linear classification head (3 outputs)
@@ -45,7 +35,7 @@ Real-world use: EHR consistency checking, clinical decision support, automated n
 
 ---
 
-## 📦 Dataset
+## Dataset
 
 **MedNLI** — clinical NLI benchmark from MIMIC-III de-identified ICU notes.
 
@@ -57,18 +47,7 @@ The notebook defaults to the synthetic dataset so everything works out of the bo
 
 ---
 
-## 📂 Repository Structure
-
-```
-clinical-text-classifier/
-├── clinical_text_classifier.ipynb   # Full pipeline notebook
-├── requirements.txt                 # Dependencies (for local use)
-└── README.md
-```
-
----
-
-## 🏋️ Training Config
+## Training Config
 
 | Hyperparameter | Value |
 |---|---|
@@ -84,7 +63,7 @@ clinical-text-classifier/
 
 ---
 
-## 📓 Notebook Steps
+## Notebook Steps
 
 | Step | What Happens |
 |---|---|
@@ -102,16 +81,7 @@ clinical-text-classifier/
 
 ---
 
-## 🔬 Next Steps
-
-- Use [`microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract`](https://huggingface.co/microsoft/BiomedNLP-PubMedBERT-base-uncased-abstract) for higher biomedical accuracy
-- Push fine-tuned model to HuggingFace Hub (one cell, uncomment & run)
-- Build a [Gradio](https://gradio.app) demo and host free on [HuggingFace Spaces](https://huggingface.co/spaces)
-- Extend to ICD-10 coding, clinical NER, de-identification
-
----
-
-## 📄 License
+## License
 
 MIT — see [LICENSE](LICENSE)
 
